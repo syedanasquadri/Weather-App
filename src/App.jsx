@@ -9,7 +9,10 @@ function App() {
 
 
   const fetchWeather = async () => {
-    if (!city) return;
+    if (!city){
+      alert("write a city name")
+      return;
+    };
     const res = await fetch(
       `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`
     );
@@ -31,9 +34,9 @@ function App() {
       {weather && weather.main && (
         <div style={{ marginTop: "20px" }}>
           <h2>{weather.name}, {weather.sys.country}</h2>
-          <p>🌡 Temp: {weather.main.temp} °C</p>
-          <p>💧 Humidity: {weather.main.humidity}%</p>
-          <p>🌥 {weather.weather[0].description}</p>
+          <p>Temp: {weather.main.temp} °C</p>
+          <p>Humidity: {weather.main.humidity}%</p>
+          <p>{weather.weather[0].description}</p>
         </div>
       )}
     </div>
