@@ -3,7 +3,7 @@ import React, { useState } from "react";
 function App() {
   const [city, setCity] = useState("");
   const [weather, setWeather] = useState(null);
-  const apiKey = "3a3eff969bb4c297205a0f5262f84956";
+  const apiKey = import.meta.env.VITE_WEATHER_API_KEY;
  // replace with OpenWeather key
   
 
