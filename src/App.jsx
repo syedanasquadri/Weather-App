@@ -10,7 +10,7 @@ function App() {
 
   const fetchWeather = async () => {
     if (!city){
-      alert("write a city name")
+      alert("enter city name")
       return;
     };
     const res = await fetch(
@@ -28,6 +28,11 @@ function App() {
         value={city}
         onChange={(e) => setCity(e.target.value)}
         placeholder="Enter city..."
+        onKeyDown={(e) => {
+          if(e.key === "Enter"){
+            fetchWeather();
+          }
+        }}
       />
       <button onClick={fetchWeather}>Get Weather</button>
 
